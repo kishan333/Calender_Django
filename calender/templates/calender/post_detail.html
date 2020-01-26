@@ -1,0 +1,41 @@
+{% extends 'calender/index.html' %}
+{% load static %}
+{% block content %}
+          <h2 class="my-4">Hello {{user.username}}</h2>
+
+        <div class="card mb-4">
+        	<div class="card-body">
+        		<h2 class="card-title">{{ post.title }}</h2>
+        		 <p class="card-text">{{ post.text|linebreaksbr }}</p>
+        		 	<a href="#" class="btn btn-primary">Vote</a>
+          	</div>
+            <div class="card-footer text-muted">
+                {{ post.published_date }}
+            </div>
+              {% if error %}
+              <h4>You Can't Comment Again</h4>
+               {% else %}   
+
+             <h6>Comment</h6>
+                <form method="POST" class="post-form">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+              <button class="btn btn-primary" >submit</button> 
+            </form>
+              {% endif %}
+            
+
+            <hr>
+              {% for comment in post.comments.all %}
+                  <div class="card-body">
+                    <h6 class="card-title" style="font-weight: bold;">{{comment.user}}</h6>                    
+                      <p>{{ comment.text}} &nbsp;&nbsp;| {{ comment.created_date }}</p>
+                  </div>
+              {% empty %}
+                <p>No comments here yet</p>
+              {% endfor %} 
+
+        </div>        
+    
+{% endblock %}
+
