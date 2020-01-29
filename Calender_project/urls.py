@@ -15,8 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from rest_framework.urlpatterns import format_suffix_patterns
+from calender import views
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('calender/', include('calender.urls')),
     path('admin/', admin.site.urls),
+    path('event_list/', views.displayEventList.as_view()),
+    # path('add_event_list/', views.addEventList.as_view()),
+    # path("",TemplateView.as_view(template_name="application.html"),name="app"),
 ]

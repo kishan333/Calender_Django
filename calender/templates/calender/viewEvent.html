@@ -1,5 +1,5 @@
 <section class="header">
-    <h2 class="title">Task</h2>
+    <h2 class="title">Event</h2>
     <form action="http://127.0.0.1:8000/calender/addEvent" method="GET">
         <button name="add">Add Event</button>
 
@@ -7,7 +7,11 @@
             {% if events %}
             <ul>
                 {% for event in events%}
-                <li>Task Name : {{ event.event_name}}</li>
+                <li>Event Name : {{ event.event_name|linebreaksbr }}</li>
+                <li>Event Description: {{ event.event_description|linebreaksbr }}</li> 
+                <li>Start Date: {{ event.start_date|linebreaksbr }}</li>   
+                <li>Due Date: {{ event.due_date|linebreaksbr }}</li>   
+                <hr>
                 <!-- <p>Status : {{ task.status }}</p> -->
                 {% endfor %}
             </ul>

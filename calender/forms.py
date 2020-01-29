@@ -69,8 +69,15 @@ class RegistrationForm(forms.Form):
 
         return self.cleaned_data
 
+
+
 class AddEvent(forms.Form):
 
     event_name = forms.CharField(
         **form_kwargs(widget=forms.TextInput(attrs=widget_attrs('Event_Name')))
     )
+    event_description = forms.CharField(
+        **form_kwargs(widget=forms.Textarea(attrs=widget_attrs('Event_Description')))
+    )
+    start_date = forms.DateField()
+    due_date = forms.DateField()
