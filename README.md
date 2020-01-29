@@ -36,6 +36,8 @@ Now your user is craeted go and check the url and enter calender_event you want.
   
 Go to (http://127.0.0.1/8000/calender) this path login with your created user and event check the output.
 
+vue-fullcaledndar zip file is for calender view of Vuejs file so if you don't want to use that file just leave it their is no dependency issue for that folder to project.
+
 Thank you to checkout my project.
 
 If you have any query please add in issues i'll try solve your querys, Thank You.
