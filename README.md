@@ -9,7 +9,7 @@ step 4: Go inside the calender_project folder open setting.py file and change Da
 
 step 5: Come out to main folder where manage.py file is and run folloing command.
     
-    ----- python manage.py makemigratios
+    ----- python manage.py makemigrations
     
     ----- python manage.py migrate
     
@@ -23,15 +23,16 @@ After this command url will come like http://127.0.0.1/8000 go to that url and y
 In admin path only admin can go login and check the functionality.
 To login process you need to create user follow the following command.
 
------ python manage.py createsuperuser
+   
+    ----- python manage.py createsuperuser
 
-Insert admin name
+    Insert admin name       
 
-Insert email-id (you can also leave it if you want)
+    Insert email-id (you can also leave it if you want)
 
-Insert Strong password and agian enter same in next field.
+    Insert Strong password and agian enter same in next field.
 
--- now your user is craeted go and check the url and enter calender_event you want.
+Now your user is craeted go and check the url and enter calender_event you want.
   
 Go to (http://127.0.0.1/8000/calender) this path login with your created user and event check the output.
 
