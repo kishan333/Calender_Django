@@ -17,7 +17,7 @@ step 5: Come out to main folder where manage.py file is and run folloing command
 
 
 
-After this command url will come like http://127.0.0.1/8000 go to that url and you will check the output.
+After this command url will come like http://127.0.0.1:8000 go to that url and you will check the output.
 
 
 In admin path only admin can go login and check the functionality.
@@ -34,7 +34,9 @@ To login process you need to create user follow the following command.
 
 Now your user is craeted go and check the url and enter calender_event you want.
   
-Go to (http://127.0.0.1/8000/calender) this path login with your created user and event check the output.
+Go to (http://127.0.0.1:8000/calender) this path login with your created user and event check the output.
+
+vue-fullcaledndar zip file is for calender view of Vuejs file so if you don't want to use that file just leave it their is no dependency issue for that folder to project.
 
 Thank you to checkout my project.
 
