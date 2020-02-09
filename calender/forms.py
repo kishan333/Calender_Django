@@ -73,11 +73,11 @@ class RegistrationForm(forms.Form):
 
 class AddEvent(forms.Form):
 
-    event_name = forms.CharField(
-        **form_kwargs(widget=forms.TextInput(attrs=widget_attrs('Event_Name')))
+    title = forms.CharField(
+        **form_kwargs(widget=forms.TextInput(attrs=widget_attrs('Title')))
     )
-    event_description = forms.CharField(
-        **form_kwargs(widget=forms.Textarea(attrs=widget_attrs('Event_Description')))
-    )
-    start_date = forms.DateField()
-    due_date = forms.DateField()
+    # event_description = forms.CharField(
+    #     **form_kwargs(widget=forms.Textarea(attrs=widget_attrs('Event_Description')))
+    # )
+    start = forms.DateField()
+    end = forms.DateField()

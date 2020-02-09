@@ -1,5 +1,5 @@
 from django.shortcuts import render,get_object_or_404,redirect
-from django.http import HttpResponse,HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect ,JsonResponse
 from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
@@ -12,10 +12,10 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import eventSerializer
+ 
 
-
-def index(request):
-	return HttpResponse("I'm home user")
+# def index(request):
+# 	return HttpResponse("I'm home user")
 
 def user_login(request):
     # print(request, request.method)
@@ -59,18 +59,19 @@ def logout_view(request):
     logout(request)
     return redirect('lists:index')
 
+@login_required
 def addEvent(request):
 
     if request.method == 'POST':
-        event_name = request.POST["event_name"]
-        event_description = request.POST["event_description"]
-        due_date = request.POST["due_date"]
-        start_date = request.POST["start_date"]
+        title = request.POST["title"]
+        # event_description = request.POST["event_description"]
+        end = request.POST["end"]
+        start = request.POST["start"]
         event_data = Event(
-        	event_name = event_name, 
-        	event_description = event_description, 
-        	due_date = due_date ,
-        	start_date = start_date,
+        	title = title, 
+        	# event_description = event_description, 
+        	end = end ,
+        	start = start,
         	)
         event_data.save()
     
@@ -81,12 +82,14 @@ def addEvent(request):
     else:
         return render(request, 'calender/addEvent.html', {'form': AddEvent()})
 
+@login_required
 def viewEvent(request):
 
     list_event = Event.objects.all()
     print(list_event,"getting the list of task")
     return render(request,'calender/viewEvent.html',{'events': list_event}) 
 
+# @login_required
 class addEventList(APIView):
 
 	def post(self, request, format=None):
@@ -96,6 +99,7 @@ class addEventList(APIView):
 			return Response(recevied_field_data.data, status = status.HTTP_201_CREATED)
 		return Response(recevied_field_data.data, status = status.HTTP_400_BAD__REQUEST)	
 
+# @login_required
 class displayEventList(APIView):
 
 	def get(self, request):

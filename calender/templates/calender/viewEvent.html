@@ -7,10 +7,10 @@
             {% if events %}
             <ul>
                 {% for event in events%}
-                <li>Event Name : {{ event.event_name|linebreaksbr }}</li>
-                <li>Event Description: {{ event.event_description|linebreaksbr }}</li> 
-                <li>Start Date: {{ event.start_date|linebreaksbr }}</li>   
-                <li>Due Date: {{ event.due_date|linebreaksbr }}</li>   
+                <li>Event Name : {{ event.title|linebreaksbr }}</li>
+                <!-- <li>Event Description: {{ event.event_description|linebreaksbr }}</li>  -->
+                <li>Start Date: {{ event.start|linebreaksbr }}</li>   
+                <li>Due Date: {{ event.end|linebreaksbr }}</li>   
                 <hr>
                 <!-- <p>Status : {{ task.status }}</p> -->
                 {% endfor %}

@@ -27,6 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+       'http://localhost:8080',
+)
+
 
 # Application definition
 
@@ -39,10 +45,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'calender',
     'rest_framework',
-    'webpack_loader',
+    'corsheaders',
+    # 'webpack_loader',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -122,14 +130,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 STATIC_URL = '/static/'
-LOGIN_REDIRECT_URL = 'viewEvent'
-WEBPACK_LOADER = {
-    'DEFAULT': {
-        'CACHE': not DEBUG,
-        'BUNDLE_DIR_NAME': '/bundles/',  # must end with slash
-        'STATS_FILE': os.path.join(BASE_DIR, 'vue-fullcalendar/webpack-stats.json'),
-        'POLL_INTERVAL': 0.1,
-        'TIMEOUT': None,
-        'IGNORE': ['.+\.hot-update.js','.+\.map'],
-    }
-}
+LOGIN_REDIRECT_URL = 'viewEvent/'
+LOGIN_URL = '/calender/'
+
+# WEBPACK_LOADER = {
+#     'DEFAULT': {
+#         'CACHE': not DEBUG,
+#         'BUNDLE_DIR_NAME': '/bundles/',  # must end with slash
+#         'STATS_FILE': os.path.join(BASE_DIR, 'vue-fullcalendar/webpack-stats.json'),
+#         'POLL_INTERVAL': 0.1,
+#         'TIMEOUT': None,
+#         'IGNORE': ['.+\.hot-update.js','.+\.map'],
+#     }
+# }
