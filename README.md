@@ -1,5 +1,5 @@
 # Calender_Django
-step 1: Make one folder and copy it or clone in that folderand also install virtualenv is system.(pip install virtualenv)
+step 1: Make one folder and copy it or clone in that folder and also install virtualenv is system.(pip install virtualenv)
 
 step 2: Create virtual enviourment.(virtualenv <enviourment_name> e.g. virtualenv venv)
 
